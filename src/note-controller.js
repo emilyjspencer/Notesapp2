@@ -12,6 +12,7 @@
 
   Controller.prototype.inputArray = function() {
     this.view.inputList(this.list)
+    this.view.modifyElements()
   }
 
   Controller.prototype.createString = function() {
