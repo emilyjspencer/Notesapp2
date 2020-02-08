@@ -1,11 +1,8 @@
 (function TestControllerInitiation() {
   var controller = new Controller()
 
-  if (!(controller.view instanceof View) || !(controller.list instanceof List)) {
-    throw new Error("Assertion is not truthy")
-  } else {
-    console.log("Test passes")
-  }
+  assert.isTrue(controller.view instanceof View)
+  assert.isTrue(controller.list instanceof List)
 
 })();
 
@@ -13,11 +10,7 @@
   var controller = new Controller()
   controller.addNote("Hi")
 
-  if (controller.list.array[0] !== "Hi") {
-    throw new Error("Assertion is not truthy")
-  } else {
-    console.log("Test passes")
-  }
+  assert.isTrue(controller.list.array[0] === "Hi")
 })();
 
 (function TestControllerInputsArray() {
@@ -25,14 +18,8 @@
   controller.addNote("Hi")
   controller.inputArray()
 
-  if (controller.view.array.length !== 1) {
-    throw new Error("Assertion is not truthy")
-  } else if (controller.view.array[0] !== "Hi") {
-    throw new Error("Assertion is not truthy")
-  } 
-  else {
-    console.log("Test passes")
-  }
+  assert.isTrue(controller.view.array.length === 1)
+  assert.isTrue(controller.view.array[0] === "Hi")
 })();
 
 (function TestControllerCreatesString() {
@@ -56,11 +43,7 @@
   element.setAttribute('id', 'app');
   controller.printApp();
 
-  if (document.getElementById('app').innerHTML.includes("test")) {
-    throw new Error("Assertion is not truthy")
-  } else {
-    console.log("Test passes")
-  }
+  assert.isTrue(document.getElementById('app').innerHTML.includes("Test"))
 })();
 
 (function TestControllerMocksDocument() {
@@ -84,9 +67,5 @@
   element.setAttribute('id', 'app');
   controller.printApp();
 
-  if (fakeDiv.innerHTML.includes("test")) {
-    throw new Error("Assertion is not truthy")
-  } else {
-    console.log("Test passes")
-  }
+  assert.isTrue(document.getElementById('app').innerHTML.includes("Test"))
 })();
