@@ -1,13 +1,15 @@
 'use strict';
 
-(function(exports) {
-  function Note() {
-    this.text = null
+  (function(exports) {
+  function Note(text, id) {
+    this.text = text
+    this.id = id
   }
 
-  Note.prototype.insertText = function(text) {
-    this.text = text
+  Note.prototype.showText = function() {
+    return this.text
   }
 
   exports.Note = Note;
+ 
 })(this)

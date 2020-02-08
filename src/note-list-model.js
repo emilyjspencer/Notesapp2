@@ -3,12 +3,13 @@
 (function(exports) {
   function List() {
     this.array = []
-    this.note = new Note()
   }
 
   List.prototype.newNote = function(text) {
-    this.note.insertText(text)
-    this.array.push(this.note.text)
+    var id = this.array.length
+    var note = new Note(text, id)
+    this.array.push(note)
+    return note;
   }
 
   exports.List = List;

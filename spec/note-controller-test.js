@@ -10,7 +10,7 @@
   var controller = new Controller()
   controller.addNote("Hi")
 
-  assert.isTrue(controller.list.array[0] === "Hi")
+  assert.isTrue(controller.list.array[0].text === "Hi")
 })();
 
 (function TestControllerInputsArray() {
@@ -19,7 +19,7 @@
   controller.inputArray()
 
   assert.isTrue(controller.view.array.length === 1)
-  assert.isTrue(controller.view.array[0] === "Hi")
+  assert.isTrue(controller.view.array[0].text === "Hi")
 })();
 
 (function TestControllerCreatesString() {
